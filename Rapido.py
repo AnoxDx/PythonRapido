@@ -1,23 +1,8 @@
 import asyncio
 import random
 
-from legendbot import legend
-from Legendbot.core.managers import eod, eor
-from Legendbot.helpers.functions import age_verification
-from Legendbot.helpers.utils import reply_id
-from Legendbot.plugins import useless
-from Legendbot.sql_helper.globals import addgvar, gvarstatus
-from Legendbot.sql_helper.raid_sql import (
-    raddai,
-    rget_all_users,
-    rget_users,
-    ris_added,
-    rremove_ai,
-    rremove_all_users,
-    rremove_users,
+from PythonRapido import Pyro
 )
-from telethon.utils import get_display_name
-
 menu_category = "fun"
 
 
@@ -323,11 +308,11 @@ RAID = [
 
 
 @legend.legend_cmd(
-    pattern="raid(?:\s|$)([\s\S]*)",
-    command=("raid", menu_category),
+    pattern="TERI",
+    command=("TERI", menu_category),
     info={
         "header": "To Send Abuse rapidly with according to number",
-        "usage": "{tr}raid <number> <reply>",
+        "usage": "{tr}TERI <number> <reply>",
     },
 )
 async def spam(e):
@@ -355,60 +340,13 @@ async def spam(e):
             async with e.client.action(e.chat_id, "typing"):
                 await e.client.send_message(e.chat_id, caption)
                 await asyncio.sleep(0.3)
-    else:
-        await e.reply("Check `.help -l raid`")
-
 
 @legend.legend_cmd(
-    pattern="replyraid$",
-    command=("replyraid", menu_category),
-    info={
-        "header": "To add this person in raid.",
-        "usage": "{tr}replyraid <reply>",
-    },
-)
-async def add_ensns(event):
-    "To raid for the replied person"
-    if event.reply_to_msg_id is None:
-        return await eor(event, "`Reply to a User's message to activate raid on `")
-    reply_to = await reply_id(event)
-    if await age_verification(event, reply_to):
-        return
-    type = await useless.importent(event)
-    if type:
-        return
-    legendevent = await eor(event, "`Adding Raid to user...`")
-    reply_msg = await event.get_reply_message()
-    b = await event.client.get_entity(reply_msg.sender_id)
-    g = b.id
-    c = b.first_name
-    username = f"[{c}](tg://user?id={g})"
-    chat_id = event.chat_id
-    user_id = reply_msg.sender_id
-    if event.is_private:
-        chat_name = c
-        chat_type = "Personal"
-    else:
-        chat_name = get_display_name(await event.get_chat())
-        chat_type = "Group"
-    user_name = c
-    user_username = username
-    if ris_added(chat_id, user_id):
-        return await eor(event, "`The user is already enabled with Raid`")
-    try:
-        raddai(chat_id, user_id, chat_name, user_name, user_username, chat_type)
-    except Exception as e:
-        await eod(legendevent, f"**Error:**\n`{e}`")
-    else:
-        await eor(legendevent, "Raid Has Been Started")
-
-
-@legend.legend_cmd(
-    pattern="dreplyraid$",
-    command=("dreplyraid", menu_category),
+    pattern="BHK",
+    command=("BHK", menu_category),
     info={
         "header": "To stop raid on it.",
-        "usage": "{tr}dreplyraid <reply>",
+        "usage": "{tr}BHK <reply>",
     },
 )
 async def remove_chatbot(event):
