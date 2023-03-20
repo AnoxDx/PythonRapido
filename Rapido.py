@@ -307,7 +307,7 @@ RAID = [
 ]
 
 
-@legend.legend_cmd(
+@Pyro.cmd(
     pattern="TERI",
     command=("TERI", menu_category),
     info={
@@ -341,7 +341,7 @@ async def spam(e):
                 await e.client.send_message(e.chat_id, caption)
                 await asyncio.sleep(0.3)
 
-@legend.legend_cmd(
+@Pyro.cmd(
     pattern="BHK",
     command=("BHK", menu_category),
     info={
@@ -367,7 +367,7 @@ async def remove_chatbot(event):
         await eor(event, "The user is not activated with raid")
 
 
-@legend.legend_cmd(
+@Pyro.cmd(
     pattern="delraid( -a)?",
     command=("delraid", menu_category),
     info={
@@ -409,7 +409,7 @@ async def delete_chbot(event):
             await eor(event, "Deleted Raid for all enabled users in this chat")
 
 
-@legend.legend_cmd(
+@Pyro.cmd(
     pattern="listraid( -a)?$",
     command=("listraid", menu_category),
     info={
