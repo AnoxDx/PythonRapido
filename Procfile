@@ -1,1 +1,1 @@
-worker: bash Rapidly.py
+worker: bash Rapido.py
