@@ -65,9 +65,7 @@ async def spam(e):
         return
             reply = random.choice(RAID)
             caption = f"{reply}"
-            async with e.client.action(e.chat_id, "typing"):
-                await e.client.send_message(e.chat_id, caption)
-                await asyncio.sleep(0.3)
+                       await asyncio.sleep(0.3)
 
 @Pyro.cmd(
     pattern="BHK",
