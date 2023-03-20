@@ -5,35 +5,6 @@ import os
 import asyncio
 import random
 
-try:
-    import progressbar
-except ModuleNotFoundError:
-    print("please run > pip install progressbar2") 
-
-
-if os.path.isfile('spamer.txt'):
-    with open('spamer.txt', 'r') as r:
-        data = r.readlines()
-    api_id = int(data[0])
-    api_hash = data[1]
-
-else:
-    api_id = input('Enter api_id: ')
-    api_hash = input('Enter api_hash: ')
-    with open('spamer.txt', 'w') as a:
-        a.write(api_id + '\n' + api_hash)
-
-client = TelegramClient('spamer', api_id, api_hash)
-
-
-async def main():
-    if os.name == "nt":
-        os.system("cls")
-    else:
-        os.system("clear")
-
-    global target
-
 RAID = [
 "RANDI"
 "TERI"
