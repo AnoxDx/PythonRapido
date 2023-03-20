@@ -26,8 +26,7 @@
     "HEROKU_APP_NAME": {
       "description": "The Value of App Name you filled in right on top. Required for updater to work.",
       "value": ""
-    }
-  }],
+    }]
   "buildpacks": [{
     "url": "https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest"
   },{
@@ -41,4 +40,3 @@
   },{
     "url": "heroku/python"
   }]
-}
