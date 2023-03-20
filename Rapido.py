@@ -52,7 +52,7 @@ RAID = [
     command=("TERI", menu_category),
     info={
         "header": "To Send Abuse rapidly with according to number",
-        "usage": "TERI <number> <reply>",
+        "usage": "TERI",
     },
 )
 async def spam(e):
@@ -72,7 +72,7 @@ async def spam(e):
     command=("BHK", menu_category),
     info={
         "header": "To stop raid on it.",
-        "usage": "BHK <reply>",
+        "usage": "BHK",
     },
 )
 async def remove_chatbot(event):
