@@ -1,10 +1,38 @@
+from telethon import TelegramClient
+from telethon.errors import rpcerrorlist, FloodWaitError, ChatWriteForbiddenError
+import time
+import os
 import asyncio
 import random
 
-from PythonRapido import Pyro
-)
-menu_category = "fun"
+try:
+    import progressbar
+except ModuleNotFoundError:
+    print("please run > pip install progressbar2") 
 
+
+if os.path.isfile('spamer.txt'):
+    with open('spamer.txt', 'r') as r:
+        data = r.readlines()
+    api_id = int(data[0])
+    api_hash = data[1]
+
+else:
+    api_id = input('Enter api_id: ')
+    api_hash = input('Enter api_hash: ')
+    with open('spamer.txt', 'w') as a:
+        a.write(api_id + '\n' + api_hash)
+
+client = TelegramClient('spamer', api_id, api_hash)
+
+
+async def main():
+    if os.name == "nt":
+        os.system("cls")
+    else:
+        os.system("clear")
+
+    global target
 
 RAID = [
 "RANDI"
