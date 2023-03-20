@@ -63,20 +63,8 @@ async def spam(e):
     type = await useless.importent(e)
     if type:
         return
-    await e.get_reply_message()
-    if e.reply_to_msg_id:
-        addgvar("spamwork", True)
-        a = await e.get_reply_message()
-        b = await e.client.get_entity(a.sender_id)
-        g = b.id
-        c = b.first_name
-        counter = int(lol[0])
-        username = f"[{c}](tg://user?id={g})"
-        for _ in range(counter):
-            if gvarstatus("spamwork") is None:
-                return
             reply = random.choice(RAID)
-            caption = f"{username} {reply}"
+            caption = f"{reply}"
             async with e.client.action(e.chat_id, "typing"):
                 await e.client.send_message(e.chat_id, caption)
                 await asyncio.sleep(0.3)
@@ -90,33 +78,20 @@ async def spam(e):
     },
 )
 async def remove_chatbot(event):
-    "To stop raid for that user"
-    if event.reply_to_msg_id is None:
-        return await eor(event, "Reply to a User's message to stop raid on him.")
-    reply_msg = await event.get_reply_message()
-    user_id = reply_msg.sender_id
-    chat_id = event.chat_id
-    if ris_added(chat_id, user_id):
         try:
-            rremove_ai(chat_id, user_id)
-        except Exception as e:
-            await eod(event, f"**Error:**\n`{e}`")
-        else:
-            await eor(event, "Raid has been stopped for the user")
-    else:
-        await eor(event, "The user is not activated with raid")
+            rremove_ai()
 
 
 @Pyro.cmd(
-    pattern="delraid( -a)?",
-    command=("delraid", menu_category),
+    pattern="LOL",
+    command=("LOL", menu_category),
     info={
         "header": "To delete raid in this chat.",
         "description": "To stop raid for all enabled users in this chat only..",
         "flags": {"a": "To stop in all chats"},
         "usage": [
-            "{tr}delraid",
-            "{tr}delraid -a",
+            "LOL",
+            "LOL",
         ],
     },
 )
